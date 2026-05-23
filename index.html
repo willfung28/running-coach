@@ -528,6 +528,21 @@ function renderLog() {
   const show100m = fields.includes('time100m') || isTrial;
   const showJump = fields.includes('jump')     || isTrial;
 
+  const isSkipped = existing.skipped && !existing.completed;
+
+  if (isSkipped) {
+    el.innerHTML = `<div class="card">
+      <h2>↩️ 取消跳過 Unskip Session</h2>
+      <p style="font-size:14px;color:#666;margin-bottom:20px;">
+        Week ${sess.weekNum} · Session ${sess.sessionType} 被標記為跳過<br>
+        This session was marked as skipped.
+      </p>
+      <button class="btn btn-primary"   onclick="unskipSession()">↩️ 放回訓練隊列 Put Back in Queue</button>
+      <button class="btn btn-secondary" onclick="logSkippedDirect()">✅ 直接記錄成績 Log It as Done Instead</button>
+      <button class="btn btn-secondary" onclick="cancelLog()">取消 Cancel</button>
+    </div>`; return;
+  }
+
   el.innerHTML = `<div class="card">
     <h2>${isEditing ? '✏️ 修改記錄 Edit Log' : '記錄結果 Log Result'}</h2>
     <p style="font-size:13px;color:#999;margin-bottom:16px;">
@@ -602,6 +617,26 @@ function submitLog() {
   showScreen(wasEditing ? 'progress' : 'today');
 }
 
+function unskipSession() {
+  const sess = editingSession; if (!sess) return;
+  const logs = getLogs();
+  delete logs[logKey(sess.phase, sess.weekNum, sess.sessionType)];
+  localStorage.setItem(K.LOGS, JSON.stringify(logs));
+  editingSession = null;
+  alert('已放回！Session is back in the queue ✅');
+  showScreen('today');
+}
+
+function logSkippedDirect() {
+  const sess = editingSession; if (!sess) return;
+  const logs = getLogs();
+  delete logs[logKey(sess.phase, sess.weekNum, sess.sessionType)];
+  localStorage.setItem(K.LOGS, JSON.stringify(logs));
+  pendingSession = sess;
+  editingSession = null;
+  renderLog();
+}
+
 function deleteLog() {
   if (!confirm('確認刪除這個記錄？\nDelete this log entry?')) return;
   const sess = editingSession; if (!sess) return;
@@ -626,9 +661,10 @@ function renderProgress() {
   const logs = getLogs();
   const bl   = getBaseline();
 
-  const allDone = plan.sessions
+  const allLogged = plan.sessions
     .map(x=>({...x, log:logs[logKey(x.phase,x.weekNum,x.sessionType)]}))
-    .filter(x=>x.log && x.log.completed);
+    .filter(x=>x.log && (x.log.completed || x.log.skipped));
+  const allDone = allLogged.filter(x=>x.log.completed);
 
   function best(field, isTime) {
     const vals = allDone.map(x=>x.log[field]).filter(v=>v!=null);
@@ -678,20 +714,22 @@ function renderProgress() {
     <div class="card">
       <h2>訓練記錄 Session Log</h2>
       <p style="font-size:12px;color:#aaa;margin-bottom:10px;">點擊任何一行可以修改 / Tap any row to edit</p>
-      ${allDone.length===0
+      ${allLogged.length===0
         ? '<p style="color:#aaa;text-align:center;padding:20px 0;font-size:14px;">未有記錄<br>No sessions logged yet</p>'
         : `<table class="progress-table">
             <thead><tr><th>Week</th><th>Ph</th><th>60m</th><th>Jump</th><th>Note</th><th></th></tr></thead>
             <tbody>
-              ${allDone.slice().reverse().map(x=>`
-                <tr class="data-row" onclick="editSessionLog(${x.phase},${x.weekNum},'${x.sessionType}')">
+              ${allLogged.slice().reverse().map(x=>{
+                const isSkipped = x.log.skipped;
+                return `<tr class="data-row" onclick="editSessionLog(${x.phase},${x.weekNum},'${x.sessionType}')" style="${isSkipped?'opacity:0.45;':''}">
                   <td>W${x.weekNum}${x.sessionType}</td>
                   <td><span class="phase-badge phase-${x.phase}" style="padding:2px 6px;font-size:11px;">P${x.phase}</span></td>
-                  <td>${x.log.time60m?x.log.time60m+'s':x.log.time100m?x.log.time100m+'s':x.log.time30m?x.log.time30m+'s':'-'}</td>
-                  <td>${x.log.jump?x.log.jump+'m':'-'}</td>
+                  <td>${isSkipped?'<i>skipped</i>':x.log.time60m?x.log.time60m+'s':x.log.time100m?x.log.time100m+'s':x.log.time30m?x.log.time30m+'s':'-'}</td>
+                  <td>${isSkipped?'':x.log.jump?x.log.jump+'m':'-'}</td>
                   <td><span class="note-cell">${x.log.note||''}</span></td>
-                  <td style="color:#e8500a;font-size:14px;">✏️</td>
-                </tr>`).join('')}
+                  <td style="font-size:14px;">${isSkipped?'↩️':'✏️'}</td>
+                </tr>`;
+              }).join('')}
             </tbody>
           </table>`}
     </div>
