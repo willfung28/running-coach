@@ -11,259 +11,138 @@
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-      background: #f5f5f5;
-      color: #1a1a1a;
-      max-width: 480px;
-      margin: 0 auto;
-      min-height: 100vh;
+      background: #f5f5f5; color: #1a1a1a;
+      max-width: 480px; margin: 0 auto; min-height: 100vh;
     }
     .header {
-      background: #e8500a;
-      color: white;
-      padding: 14px 16px 12px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background: #e8500a; color: white;
+      padding: 14px 16px 12px; position: sticky; top: 0; z-index: 10;
     }
     .header h1 { font-size: 19px; font-weight: 700; }
-    .header p { font-size: 12px; opacity: 0.82; margin-top: 2px; }
+    .header p  { font-size: 12px; opacity: 0.82; margin-top: 2px; }
     .nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 480px;
-      background: white;
-      border-top: 1px solid #e0e0e0;
-      display: flex;
-      z-index: 10;
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 480px; background: white;
+      border-top: 1px solid #e0e0e0; display: flex; z-index: 10;
       padding-bottom: env(safe-area-inset-bottom);
     }
-    .nav-btn {
-      flex: 1;
-      padding: 9px 4px 11px;
-      text-align: center;
-      border: none;
-      background: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: #999;
-    }
+    .nav-btn { flex:1; padding:9px 4px 11px; text-align:center; border:none; background:none; font-size:22px; cursor:pointer; color:#999; }
     .nav-btn.active { color: #e8500a; }
-    .nav-btn span { display: block; font-size: 10px; margin-top: 1px; font-weight: 500; }
-    .screen {
-      display: none;
-      padding: 14px 14px 90px;
-      min-height: calc(100vh - 56px);
-    }
-    .screen.active { display: block; }
-    .card {
-      background: white;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    }
-    .card h2 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-    .phase-badge {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .phase-1 { background: #e3f2fd; color: #1565c0; }
-    .phase-2 { background: #f3e5f5; color: #6a1b9a; }
-    .phase-3 { background: #fce4ec; color: #b71c1c; }
-    .tag-trial {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      background: #fce4ec;
-      color: #c62828;
-      margin-left: 6px;
-    }
-    .drill {
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .drill:last-child { border-bottom: none; }
-    .drill-title { font-weight: 600; font-size: 15px; margin-bottom: 5px; }
-    .drill-desc { font-size: 13px; color: #777; margin-bottom: 7px; }
-    .drill-tips {
-      background: #fff5f0;
-      border-left: 3px solid #e8500a;
-      padding: 8px 10px;
-      border-radius: 0 8px 8px 0;
-    }
-    .drill-tips p { font-size: 13px; color: #555; line-height: 1.55; margin-bottom: 3px; }
-    .drill-tips p:last-child { margin-bottom: 0; }
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-bottom: 10px;
-      transition: opacity 0.15s;
-    }
-    .btn:active { opacity: 0.8; }
-    .btn-primary { background: #e8500a; color: white; }
-    .btn-secondary { background: #f0f0f0; color: #555; }
-    .btn-outline { background: white; color: #e8500a; border: 2px solid #e8500a; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; }
-    .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 1.5px solid #e0e0e0;
-      border-radius: 10px;
-      font-size: 16px;
-      color: #1a1a1a;
-      background: white;
-      appearance: none;
-    }
-    .form-group input:focus { outline: none; border-color: #e8500a; }
-    .info-text { font-size: 12px; color: #999; margin-top: 4px; }
-    .progress-bar-wrap { background: #f0f0f0; border-radius: 10px; height: 7px; margin-top: 7px; }
-    .progress-bar-fill { background: #e8500a; height: 7px; border-radius: 10px; transition: width 0.4s; }
-    .target-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .target-row:last-child { border-bottom: none; }
-    .target-label { font-size: 14px; color: #555; }
-    .target-value { font-size: 17px; font-weight: 700; }
-    .target-sub { font-size: 12px; color: #aaa; }
-    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-    .dot-green { background: #4caf50; }
-    .dot-yellow { background: #ff9800; }
-    .dot-red { background: #f44336; }
-    .dot-grey { background: #ccc; }
-    .progress-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .progress-table th {
-      text-align: left;
-      padding: 7px 5px;
-      border-bottom: 2px solid #eee;
-      font-size: 11px;
-      color: #999;
-      font-weight: 600;
-    }
-    .progress-table td { padding: 8px 5px; border-bottom: 1px solid #f5f5f5; vertical-align: middle; }
-    .no-setup {
-      background: #fff8f0;
-      border: 1.5px solid #ffcc80;
-      border-radius: 12px;
-      padding: 24px 20px;
-      text-align: center;
-    }
-    .no-setup h3 { font-size: 17px; margin-bottom: 8px; }
-    .no-setup p { font-size: 14px; color: #666; margin-bottom: 5px; line-height: 1.5; }
-    .summary-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
-    .summary-row:last-child { border-bottom: none; }
-    .summary-label { color: #666; }
-    .summary-val { font-weight: 600; }
-    .note-cell { font-size: 12px; color: #aaa; font-style: italic; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .nav-btn span { display:block; font-size:10px; margin-top:1px; font-weight:500; }
+    .screen { display:none; padding:14px 14px 90px; min-height:calc(100vh - 56px); }
+    .screen.active { display:block; }
+    .card { background:white; border-radius:14px; padding:16px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,0.07); }
+    .card h2 { font-size:17px; font-weight:700; margin-bottom:12px; }
+    .phase-badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+    .phase-1 { background:#e3f2fd; color:#1565c0; }
+    .phase-2 { background:#f3e5f5; color:#6a1b9a; }
+    .phase-3 { background:#fce4ec; color:#b71c1c; }
+    .tag-trial { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:#fce4ec; color:#c62828; margin-left:6px; }
+    .drill { padding:12px 0; border-bottom:1px solid #f0f0f0; }
+    .drill:last-child { border-bottom:none; }
+    .drill-title { font-weight:600; font-size:15px; margin-bottom:5px; }
+    .drill-desc  { font-size:13px; color:#777; margin-bottom:7px; }
+    .drill-tips  { background:#fff5f0; border-left:3px solid #e8500a; padding:8px 10px; border-radius:0 8px 8px 0; }
+    .drill-tips p { font-size:13px; color:#555; line-height:1.55; margin-bottom:3px; }
+    .drill-tips p:last-child { margin-bottom:0; }
+    .btn { display:block; width:100%; padding:14px; border:none; border-radius:12px; font-size:16px; font-weight:600; cursor:pointer; margin-bottom:10px; transition:opacity 0.15s; }
+    .btn:active { opacity:0.8; }
+    .btn-primary  { background:#e8500a; color:white; }
+    .btn-secondary{ background:#f0f0f0; color:#555; }
+    .btn-outline  { background:white; color:#e8500a; border:2px solid #e8500a; }
+    .btn-danger   { background:#fce4ec; color:#c62828; }
+    .form-group { margin-bottom:14px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; color:#555; margin-bottom:5px; }
+    .form-group input { width:100%; padding:12px; border:1.5px solid #e0e0e0; border-radius:10px; font-size:16px; color:#1a1a1a; background:white; appearance:none; }
+    .form-group input:focus { outline:none; border-color:#e8500a; }
+    .info-text { font-size:12px; color:#999; margin-top:4px; }
+    .progress-bar-wrap { background:#f0f0f0; border-radius:10px; height:7px; margin-top:7px; }
+    .progress-bar-fill { background:#e8500a; height:7px; border-radius:10px; transition:width 0.4s; }
+    .target-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f0f0f0; }
+    .target-row:last-child { border-bottom:none; }
+    .target-label { font-size:14px; color:#555; }
+    .target-value { font-size:17px; font-weight:700; }
+    .target-sub   { font-size:12px; color:#aaa; }
+    .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; vertical-align:middle; }
+    .dot-green  { background:#4caf50; }
+    .dot-yellow { background:#ff9800; }
+    .dot-red    { background:#f44336; }
+    .dot-grey   { background:#ccc; }
+    .progress-table { width:100%; border-collapse:collapse; font-size:13px; }
+    .progress-table th { text-align:left; padding:7px 5px; border-bottom:2px solid #eee; font-size:11px; color:#999; font-weight:600; }
+    .progress-table td { padding:8px 5px; border-bottom:1px solid #f5f5f5; vertical-align:middle; }
+    .progress-table tr.data-row { cursor:pointer; }
+    .progress-table tr.data-row:active { background:#fff5f0; }
+    .no-setup { background:#fff8f0; border:1.5px solid #ffcc80; border-radius:12px; padding:24px 20px; text-align:center; }
+    .no-setup h3 { font-size:17px; margin-bottom:8px; }
+    .no-setup p  { font-size:14px; color:#666; margin-bottom:5px; line-height:1.5; }
+    .summary-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #f5f5f5; font-size:14px; }
+    .summary-row:last-child { border-bottom:none; }
+    .summary-label { color:#666; }
+    .summary-val   { font-weight:600; }
+    .note-cell { font-size:12px; color:#aaa; font-style:italic; max-width:70px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .baseline-bar { background:#fff5f0; border:1.5px solid #e8500a; border-radius:12px; padding:12px 14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; }
+    .baseline-bar-left { font-size:13px; }
+    .baseline-bar-label { font-weight:600; color:#e8500a; font-size:12px; margin-bottom:3px; }
+    .baseline-bar-vals  { color:#555; }
+    .baseline-bar-edit  { font-size:13px; color:#e8500a; font-weight:600; padding:6px 12px; border:1.5px solid #e8500a; border-radius:8px; background:white; cursor:pointer; }
+    .baseline-prompt { background:#fff5f0; border:1.5px dashed #e8500a; border-radius:12px; padding:16px; margin-bottom:12px; text-align:center; }
+    .baseline-prompt p { font-size:13px; color:#666; margin-bottom:10px; }
+    .three-col { display:flex; gap:10px; margin-bottom:12px; }
+    .three-col .card { flex:1; text-align:center; padding:14px 10px; margin-bottom:0; }
   </style>
 </head>
 <body>
 
 <div class="header">
-  <h1 id="headerTitle">Running Coach</h1>
-  <p id="headerSub">今日訓練 · Today's Training</p>
+  <h1>Running Coach</h1>
+  <p>今日訓練 · Today's Training</p>
 </div>
 
-<div id="screen-today" class="screen active">
-  <div id="todayContent"></div>
-</div>
-
-<div id="screen-log" class="screen">
-  <div id="logContent"></div>
-</div>
-
-<div id="screen-progress" class="screen">
-  <div id="progressContent"></div>
-</div>
-
-<div id="screen-settings" class="screen">
-  <div id="settingsContent"></div>
-</div>
+<div id="screen-today"    class="screen active"><div id="todayContent"></div></div>
+<div id="screen-log"      class="screen"><div id="logContent"></div></div>
+<div id="screen-progress" class="screen"><div id="progressContent"></div></div>
+<div id="screen-settings" class="screen"><div id="settingsContent"></div></div>
 
 <nav class="nav">
-  <button class="nav-btn active" onclick="showScreen('today')" id="nav-today">
-    🏃 <span>今日</span>
-  </button>
-  <button class="nav-btn" onclick="showScreen('log')" id="nav-log">
-    ✏️ <span>記錄</span>
-  </button>
-  <button class="nav-btn" onclick="showScreen('progress')" id="nav-progress">
-    📊 <span>進度</span>
-  </button>
-  <button class="nav-btn" onclick="showScreen('settings')" id="nav-settings">
-    ⚙️ <span>設定</span>
-  </button>
+  <button class="nav-btn active" onclick="showScreen('today')"    id="nav-today">🏃 <span>今日</span></button>
+  <button class="nav-btn"        onclick="showScreen('log')"      id="nav-log">✏️ <span>記錄</span></button>
+  <button class="nav-btn"        onclick="showScreen('progress')" id="nav-progress">📊 <span>進度</span></button>
+  <button class="nav-btn"        onclick="showScreen('settings')" id="nav-settings">⚙️ <span>設定</span></button>
 </nav>
 
 <script>
-// ── DATA ──────────────────────────────────────────────
-const STORE_SETTINGS = 'rc_settings';
-const STORE_LOGS     = 'rc_logs';
+// ── DATA ─────────────────────────────────────────────────────────────────────
+const K = { SETTINGS:'rc_settings', LOGS:'rc_logs', BASELINE:'rc_baseline' };
 
-function getSettings() {
-  const raw = localStorage.getItem(STORE_SETTINGS);
-  return raw ? JSON.parse(raw) : null;
-}
-function saveSettings(s) {
-  localStorage.setItem(STORE_SETTINGS, JSON.stringify(s));
-}
-function getLogs() {
-  const raw = localStorage.getItem(STORE_LOGS);
-  return raw ? JSON.parse(raw) : {};
-}
+const getSettings = () => { const r=localStorage.getItem(K.SETTINGS); return r?JSON.parse(r):null; };
+const saveSettings = s => localStorage.setItem(K.SETTINGS, JSON.stringify(s));
+const getLogs      = () => { const r=localStorage.getItem(K.LOGS);     return r?JSON.parse(r):{}; };
+const getBaseline  = () => { const r=localStorage.getItem(K.BASELINE); return r?JSON.parse(r):null; };
+const saveBaseline = b => localStorage.setItem(K.BASELINE, JSON.stringify(b));
+
 function saveLog(key, data) {
-  const logs = getLogs();
-  logs[key] = data;
-  localStorage.setItem(STORE_LOGS, JSON.stringify(logs));
+  const logs = getLogs(); logs[key] = data;
+  localStorage.setItem(K.LOGS, JSON.stringify(logs));
 }
-function logKey(phase, weekNum, type) {
-  return 'p' + phase + '_w' + weekNum + '_' + type;
-}
+function logKey(phase, weekNum, type) { return 'p'+phase+'_w'+weekNum+'_'+type; }
 
-// ── PLAN GENERATION ───────────────────────────────────
+// ── PLAN ─────────────────────────────────────────────────────────────────────
 function generatePlan(s) {
-  const start  = new Date(s.startDate);
-  const tryout = new Date(s.tryoutDate);
-  const totalDays  = Math.floor((tryout - start) / 864e5);
+  const totalDays  = Math.floor((new Date(s.tryoutDate) - new Date(s.startDate)) / 864e5);
   const totalWeeks = Math.max(3, Math.floor(totalDays / 7));
-
   const p1 = Math.max(1, Math.round(totalWeeks * 0.30));
   const p2 = Math.max(1, Math.round(totalWeeks * 0.40));
   const p3 = Math.max(1, totalWeeks - p1 - p2);
-
   const sessions = [];
   let wk = 1;
-
   function addPhase(phase, weeks) {
-    for (let w = 0; w < weeks; w++, wk++) {
-      const isTrial = (w === weeks - 1);
-      for (const t of ['A','B','C']) {
-        sessions.push({ phase, weekNum: wk, sessionType: t, isTrial });
-      }
+    for (let w=0; w<weeks; w++, wk++) {
+      const isTrial = (w === weeks-1);
+      for (const t of ['A','B','C']) sessions.push({ phase, weekNum:wk, sessionType:t, isTrial });
     }
   }
-  addPhase(1, p1);
-  addPhase(2, p2);
-  addPhase(3, p3);
-
+  addPhase(1,p1); addPhase(2,p2); addPhase(3,p3);
   return { sessions, p1, p2, p3, totalWeeks };
 }
 
@@ -275,390 +154,261 @@ function nextSession(plan, logs) {
   return null;
 }
 
-// ── TRAINING CONTENT ──────────────────────────────────
-const PHASE_NAMES = {
-  1: '基礎期 Foundation',
-  2: '發展期 Development',
-  3: '衝刺期 Peak'
-};
+// ── CONTENT ───────────────────────────────────────────────────────────────────
+const PHASE_NAMES = { 1:'基礎期 Foundation', 2:'發展期 Development', 3:'衝刺期 Peak' };
 
 const SESSIONS = {
   '1_A': {
-    name: 'Sprint Form · 跑步技術',
-    intro: '今日重點：學正確跑步姿勢 / Focus: correct running form',
-    logFields: ['note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 3 min',
-        desc: '輕鬆慢跑 + 跳繩 / Easy jog + skipping',
-        tips: ['放鬆跑，唔係衝刺 / Easy pace, not sprinting',
-               '手臂放鬆擺動 / Let arms swing loosely',
-               '深呼吸，準備好 / Deep breaths, get ready']
-      },
-      {
-        title: '高抬腿 High Knees · 3 × 20m',
-        desc: '慢慢誇張地高抬腿 / Slow, exaggerated knee lifts',
-        tips: ['膝蓋要高舉，好似行軍 / Lift knees high, like marching soldiers',
-               '用腳尖踩地，唔好用腳掌 / Land on toes, not flat foot',
-               '眼望前方，唔好望落地 / Eyes forward, not looking down']
-      },
-      {
-        title: '手臂擺動練習 Arm Drive · 3 × 10s',
-        desc: '企定，快速擺臂10秒 / Stand still, pump arms fast for 10 seconds',
-        tips: ['手肘彎曲90度 / Elbows bent at 90°',
-               '前後擺，唔好左右擺 / Swing front-to-back, not across body',
-               '手掌放鬆，唔好握拳 / Hands loose, not clenched']
-      },
-      {
-        title: '短跑 Sprints · 4 × 30m',
-        desc: '注重姿勢，唔係速度 / Focus on form today, not speed',
-        tips: ['自然呼吸，唔好憋氣 / Breathe naturally, don\'t hold your breath',
-               '輕微向前傾（從腳踝） / Lean slightly forward from ankles',
-               '最後10m唔好慢下來 / Don\'t slow down before the finish line']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行2分鐘 + 伸展 / Walk 2 min then stretch',
-        tips: ['慢慢行，唔好即刻停 / Walk slowly, don\'t stop suddenly',
-               '深呼吸，讓心跳慢下來 / Deep breaths, let heart rate settle',
-               '伸展大腿前後 + 小腿 / Stretch quads, hamstrings, calves']
-      }
+    name:'Sprint Form · 跑步技術',
+    intro:'今日重點：學正確跑步姿勢 / Focus: correct running form',
+    logFields:['note'],
+    drills:[
+      { title:'暖身 Warm Up · 3 min', desc:'輕鬆慢跑 + 跳繩 / Easy jog + skipping',
+        tips:['放鬆跑，唔係衝刺 / Easy pace, not sprinting','手臂放鬆擺動 / Let arms swing loosely','深呼吸，準備好 / Deep breaths, get ready'] },
+      { title:'高抬腿 High Knees · 3 × 20m', desc:'慢慢誇張地高抬腿 / Slow, exaggerated knee lifts',
+        tips:['膝蓋要高舉，好似行軍 / Lift knees high, like marching soldiers','用腳尖踩地，唔好用腳掌 / Land on toes, not flat foot','眼望前方，唔好望落地 / Eyes forward, not looking down'] },
+      { title:'手臂擺動練習 Arm Drive · 3 × 10s', desc:'企定，快速擺臂10秒 / Stand still, pump arms fast for 10 seconds',
+        tips:['手肘彎曲90度 / Elbows bent at 90°','前後擺，唔好左右擺 / Swing front-to-back, not across body','手掌放鬆，唔好握拳 / Hands loose, not clenched'] },
+      { title:'短跑 Sprints · 4 × 30m', desc:'注重姿勢，唔係速度 / Focus on form today, not speed',
+        tips:['自然呼吸，唔好憋氣 / Breathe naturally, don\'t hold your breath','輕微向前傾（從腳踝） / Lean slightly forward from ankles','最後10m唔好慢下來 / Don\'t slow down before the finish line'] },
+      { title:'收操 Cool Down', desc:'慢行2分鐘 + 伸展 / Walk 2 min then stretch',
+        tips:['慢慢行，唔好即刻停 / Walk slowly, don\'t stop suddenly','深呼吸，讓心跳慢下來 / Deep breaths, let heart rate settle','伸展大腿前後 + 小腿 / Stretch quads, hamstrings, calves'] }
     ]
   },
   '1_B': {
-    name: 'Speed Games · 速度遊戲',
-    intro: '今日重點：反應速度 / Focus: reaction and start speed',
-    logFields: ['time30m', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 捉人遊戲 3 min',
-        desc: '爸爸/媽媽跑，女兒全力追 / Parent runs, daughter chases at full speed',
-        tips: ['孩子追人會比被叫跑更快 / Kids sprint harder when chasing — use it',
-               '玩得認真，全力追 / Play seriously, full effort']
-      },
-      {
-        title: '反應起跑 Reaction Starts · 5 × 20m',
-        desc: '蹲低，聽到GO就衝 / Crouch down, explode on GO signal',
-        tips: ['蹲低，重心向前 / Crouch low, weight forward',
-               'GO一聽到就爆發，唔好等 / Explode the moment you hear GO — no hesitation',
-               '頭10步係最重要 / The first 10 steps decide the race']
-      },
-      {
-        title: '飛行衝刺 Flying Sprints · 4 × 30m',
-        desc: '慢跑10m然後換擋衝刺20m / Jog 10m then switch to full sprint for 20m',
-        tips: ['感受速度轉換 / Feel the gear shift from jog to sprint',
-               '手臂加速帶動腿加速 / Speed up arm swing to trigger leg speed',
-               '每次休息2分鐘 / Rest 2 minutes between each run']
-      },
-      {
-        title: '⏱️ 計時30m · Timed 30m Sprint',
-        desc: '計時跑一次，記錄時間 / One timed run — record the result',
-        tips: ['全力衝刺，這係今日最快 / Full effort — this is today\'s fastest run',
-               '衝過終點線先停，唔好衝到先慢 / Run through the line before slowing down']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行 + 伸展',
-        tips: ['慢慢行，深呼吸 / Walk slowly, breathe deeply',
-               '做完今日記得記錄30m時間！/ Remember to log today\'s 30m time!']
-      }
+    name:'Speed Games · 速度遊戲',
+    intro:'今日重點：反應速度 / Focus: reaction and start speed',
+    logFields:['time30m','note'],
+    drills:[
+      { title:'暖身 Warm Up · 捉人遊戲 3 min', desc:'爸爸/媽媽跑，女兒全力追 / Parent runs, daughter chases at full speed',
+        tips:['孩子追人會比被叫跑更快 / Kids sprint harder when chasing — use it','玩得認真，全力追 / Play seriously, full effort'] },
+      { title:'反應起跑 Reaction Starts · 5 × 20m', desc:'蹲低，聽到GO就衝 / Crouch down, explode on GO signal',
+        tips:['蹲低，重心向前 / Crouch low, weight forward','GO一聽到就爆發，唔好等 / Explode the moment you hear GO — no hesitation','頭10步係最重要 / The first 10 steps decide the race'] },
+      { title:'飛行衝刺 Flying Sprints · 4 × 30m', desc:'慢跑10m然後換擋衝刺20m / Jog 10m then switch to full sprint for 20m',
+        tips:['感受速度轉換 / Feel the gear shift from jog to sprint','手臂加速帶動腿加速 / Speed up arm swing to trigger leg speed','每次休息2分鐘 / Rest 2 minutes between each run'] },
+      { title:'⏱️ 計時30m · Timed 30m Sprint', desc:'計時跑一次，記錄時間 / One timed run — record the result',
+        tips:['全力衝刺，這係今日最快 / Full effort — this is today\'s fastest run','衝過終點線先停 / Run through the line before slowing down'] },
+      { title:'收操 Cool Down', desc:'慢行 + 伸展',
+        tips:['慢慢行，深呼吸 / Walk slowly, breathe deeply','做完今日記得記錄30m時間！/ Remember to log today\'s 30m time!'] }
     ]
   },
   '1_C': {
-    name: 'Long Jump Intro · 跳遠入門',
-    intro: '今日重點：學習跳遠基本技術 / Focus: long jump basics',
-    logFields: ['jump', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 跳繩 + 單腳跳',
-        desc: '跳繩2分鐘 + 每腳單腳跳10下 / Skip 2 min + 10 single-leg hops each leg',
-        tips: ['跳繩同單腳跳建立腿部彈力 / Skipping and hopping builds spring power',
-               '用腳尖彈起，唔好用腳掌 / Spring off toes, not flat foot']
-      },
-      {
-        title: '原地跳 Standing Jump · 5 次',
-        desc: '雙腳起跳，跳盡量遠 / Jump as far as possible from standing',
-        tips: ['起跳前微蹲，手臂向後擺 / Bend knees slightly, swing arms back before jumping',
-               '手臂向前擺幫助跳遠 / Swing arms forward to add distance',
-               '落地時雙腳一起 / Land with both feet together']
-      },
-      {
-        title: '5步助跑跳 Run-Up Jump · 5 × 助跑跳',
-        desc: '數5步助跑，第5步起跳 / 5-step run-up, jump off on step 5',
-        tips: ['每次都係同一隻腳起跳 / Always take off from the same foot',
-               '起跳腳蹬地，另一隻腳膝蓋向上頂 / Plant foot hard, drive opposite knee up high',
-               '在空中腳向前踢，唔好向下踩 / Kick feet forward in the air, not downward']
-      },
-      {
-        title: '量度 + 記錄 Measure Best Jump',
-        desc: '量最遠一跳 / Measure the best jump distance',
-        tips: ['由起跳線量到後腳跟落地點 / Measure from takeoff line to back heel',
-               '落地時唔好向後坐，會減少距離 / Don\'t sit back on landing — it loses distance',
-               '記錄今日最遠距離 / Record today\'s best jump']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行 + 伸展腿部 / Walk then stretch legs',
-        tips: ['伸展大腿前側：抓腳踝拉向臀部 / Quad stretch: hold ankle, pull heel to bum',
-               '伸展小腿：後腳踩地，前傾 / Calf stretch: step back, press heel to ground']
-      }
+    name:'Long Jump Intro · 跳遠入門',
+    intro:'今日重點：學習跳遠基本技術 / Focus: long jump basics',
+    logFields:['jump','note'],
+    drills:[
+      { title:'暖身 Warm Up · 跳繩 + 單腳跳', desc:'跳繩2分鐘 + 每腳單腳跳10下 / Skip 2 min + 10 single-leg hops each leg',
+        tips:['跳繩同單腳跳建立腿部彈力 / Skipping and hopping builds spring power','用腳尖彈起，唔好用腳掌 / Spring off toes, not flat foot'] },
+      { title:'原地跳 Standing Jump · 5 次', desc:'雙腳起跳，跳盡量遠 / Jump as far as possible from standing',
+        tips:['起跳前微蹲，手臂向後擺 / Bend knees slightly, swing arms back before jumping','手臂向前擺幫助跳遠 / Swing arms forward to add distance','落地時雙腳一起 / Land with both feet together'] },
+      { title:'5步助跑跳 Run-Up Jump · 5 次', desc:'數5步助跑，第5步起跳 / 5-step run-up, jump off on step 5',
+        tips:['每次都係同一隻腳起跳 / Always take off from the same foot','起跳腳蹬地，另一隻腳膝蓋向上頂 / Plant foot hard, drive opposite knee up high','在空中腳向前踢，唔好向下踩 / Kick feet forward in the air, not downward'] },
+      { title:'量度 + 記錄 Measure Best Jump', desc:'量最遠一跳 / Measure the best jump distance',
+        tips:['由起跳線量到後腳跟落地點 / Measure from takeoff line to back heel','落地時唔好向後坐，會減少距離 / Don\'t sit back on landing — it loses distance','記錄今日最遠距離 / Record today\'s best jump'] },
+      { title:'收操 Cool Down', desc:'慢行 + 伸展腿部 / Walk then stretch legs',
+        tips:['伸展大腿前側：抓腳踝拉向臀部 / Quad stretch: hold ankle, pull heel to bum','伸展小腿：後腳踩地，前傾 / Calf stretch: step back, press heel to ground'] }
     ]
   },
   '2_A': {
-    name: 'Sprint Power · 爆發力',
-    intro: '今日重點：建立腿部爆發力 / Focus: build explosive leg power',
-    logFields: ['note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 5 min',
-        desc: '慢跑 + 高抬腿 + 跳繩 / Jog + high knees + skipping',
-        tips: ['Phase 2開始，要更認真 / Phase 2 — time to step it up',
-               '暖身要足夠，避免受傷 / Warm up properly to prevent injury']
-      },
-      {
-        title: '斜坡衝刺 Hill Sprints · 4 × 20m',
-        desc: '有斜坡用斜坡，沒有就用更大力跑 / Use a hill if you have one; if not, run with extra effort',
-        tips: ['斜坡鍛煉腿部爆發力 / Hills build explosive leg power',
-               '斜坡上高抬腿更重要 / Drive knees even higher going uphill',
-               '手臂用力擺，幫助推進 / Pump arms hard to power up the slope']
-      },
-      {
-        title: '平地衝刺 Flat Sprints · 4 × 40m',
-        desc: '比Phase 1更長距離，更快 / Longer and faster than Phase 1',
-        tips: ['比上個月更快 / Push faster than last month',
-               '累了也要保持姿勢 / Maintain technique even when tired',
-               '每次休息2-3分鐘 / Rest 2-3 minutes between runs']
-      },
-      {
-        title: '衝線練習 Finish Strong · 3 × 50m',
-        desc: '最後20m要加速，絕不慢下來 / Accelerate the last 20m — never slow at the end',
-        tips: ['到終點前唔好減速 / Never decelerate before the line',
-               '衝過終點線，唔係衝到終點線 / Run THROUGH the line, not TO the line',
-               '比賽時裁判睇衝線一刻 / Judges watch the finish moment — that\'s when it counts']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行3分鐘 + 完整伸展 / Walk 3 min + full stretching',
-        tips: ['今日練習辛苦，伸展要足夠 / Tough session — take time to stretch properly']
-      }
+    name:'Sprint Power · 爆發力',
+    intro:'今日重點：建立腿部爆發力 / Focus: build explosive leg power',
+    logFields:['note'],
+    drills:[
+      { title:'暖身 Warm Up · 5 min', desc:'慢跑 + 高抬腿 + 跳繩 / Jog + high knees + skipping',
+        tips:['Phase 2開始，要更認真 / Phase 2 — time to step it up','暖身要足夠，避免受傷 / Warm up properly to prevent injury'] },
+      { title:'斜坡衝刺 Hill Sprints · 4 × 20m', desc:'有斜坡用斜坡，沒有就用更大力跑 / Use a hill if available; if not, run with extra effort',
+        tips:['斜坡鍛煉腿部爆發力 / Hills build explosive leg power','斜坡上高抬腿更重要 / Drive knees even higher going uphill','手臂用力擺，幫助推進 / Pump arms hard to power up the slope'] },
+      { title:'平地衝刺 Flat Sprints · 4 × 40m', desc:'比Phase 1更長距離，更快 / Longer and faster than Phase 1',
+        tips:['比上個月更快 / Push faster than last month','累了也要保持姿勢 / Maintain technique even when tired','每次休息2-3分鐘 / Rest 2-3 minutes between runs'] },
+      { title:'衝線練習 Finish Strong · 3 × 50m', desc:'最後20m要加速，絕不慢下來 / Accelerate the last 20m — never slow at the end',
+        tips:['到終點前唔好減速 / Never decelerate before the line','衝過終點線，唔係衝到終點線 / Run THROUGH the line, not TO the line','比賽時裁判睇衝線一刻 / Judges watch the finish moment'] },
+      { title:'收操 Cool Down', desc:'慢行3分鐘 + 完整伸展 / Walk 3 min + full stretching',
+        tips:['今日練習辛苦，伸展要足夠 / Tough session — take time to stretch properly'] }
     ]
   },
   '2_B': {
-    name: 'Speed Endurance · 速度耐力',
-    intro: '今日重點：保持速度更長距離 / Focus: hold speed over longer distance',
-    logFields: ['time60m', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 捉人遊戲 3-4 min',
-        desc: '捉人遊戲 / Tag game — full speed chasing',
-        tips: ['認真玩，全力追 / Play seriously, full effort',
-               '玩完就轉換到訓練模式 / Switch to training mode after the game']
-      },
-      {
-        title: '⏱️ 60m 計時 Time Trial',
-        desc: '全力衝刺60m，計時 / Full effort 60m sprint, record time',
-        tips: ['起跑前深呼吸一次 / One deep breath before the start',
-               '全力衝刺，唔好保留 / Full effort — hold nothing back',
-               '衝過終點線先慢下來 / Run through the line before slowing']
-      },
-      {
-        title: '休息 Rest · 5 分鐘',
-        desc: '慢行，恢復 / Walk around to recover',
-        tips: ['慢行，唔好坐低 / Keep walking, don\'t sit down',
-               '繼續深呼吸 / Keep breathing deeply']
-      },
-      {
-        title: '50m 重複跑 Repeat Sprints · 3 × 50m',
-        desc: '比賽節奏，大概8成力 / Race pace, about 80% effort',
-        tips: ['唔係全力，係比賽感覺 / Not full effort — aim for race feeling',
-               '專注保持跑姿 / Focus on maintaining good technique',
-               '每次休息2分鐘 / Rest 2 minutes between each']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行 + 伸展 / Walk then stretch',
-        tips: ['記住記錄今日60m時間！/ Remember to log today\'s 60m time!',
-               '和目標對比：仲差幾多？/ Check against target: how much gap left?']
-      }
+    name:'Speed Endurance · 速度耐力',
+    intro:'今日重點：保持速度更長距離 / Focus: hold speed over longer distance',
+    logFields:['time60m','note'],
+    drills:[
+      { title:'暖身 Warm Up · 捉人遊戲 3-4 min', desc:'捉人遊戲 / Tag game — full speed chasing',
+        tips:['認真玩，全力追 / Play seriously, full effort','玩完就轉換到訓練模式 / Switch to training mode after the game'] },
+      { title:'⏱️ 60m 計時 Time Trial', desc:'全力衝刺60m，計時 / Full effort 60m sprint, record time',
+        tips:['起跑前深呼吸一次 / One deep breath before the start','全力衝刺，唔好保留 / Full effort — hold nothing back','衝過終點線先慢下來 / Run through the line before slowing'] },
+      { title:'休息 Rest · 5 分鐘', desc:'慢行，恢復 / Walk around to recover',
+        tips:['慢行，唔好坐低 / Keep walking, don\'t sit down','繼續深呼吸 / Keep breathing deeply'] },
+      { title:'50m 重複跑 Repeat Sprints · 3 × 50m', desc:'比賽節奏，大概8成力 / Race pace, about 80% effort',
+        tips:['唔係全力，係比賽感覺 / Not full effort — aim for race feeling','專注保持跑姿 / Focus on maintaining good technique','每次休息2分鐘 / Rest 2 minutes between each'] },
+      { title:'收操 Cool Down', desc:'慢行 + 伸展 / Walk then stretch',
+        tips:['記住記錄今日60m時間！/ Remember to log today\'s 60m time!','和目標對比：仲差幾多？/ Check against target: how much gap left?'] }
     ]
   },
   '2_C': {
-    name: 'Long Jump Technique · 跳遠技術',
-    intro: '今日重點：提升跳遠一致性和距離 / Focus: improve jump consistency and distance',
-    logFields: ['jump', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up',
-        desc: '跳繩 + 單腳跳 + 高抬腿 / Skipping + single-leg hops + high knees',
-        tips: ['專為跳遠暖身 / Warm up specifically for jumping movements']
-      },
-      {
-        title: '助跑練習 Approach Run Practice · 5 次',
-        desc: '唔需要跳，只練助跑一致性 / No jumping — just practise a consistent run-up',
-        tips: ['每次都係同一個位置踩線 / Aim to hit the same takeoff spot every time',
-               '數清楚步數，保持節奏 / Count steps consistently, keep the same rhythm',
-               '唔使跑快，要跑穩 / Don\'t go fast — go consistent']
-      },
-      {
-        title: '起跳練習 Takeoff Drill · 5 次',
-        desc: '3步助跑，著重起跳動作 / 3-step run-up, focus only on the takeoff',
-        tips: ['起跳腳要蹬地，唔係踩地 / Drive off the takeoff foot — push hard, don\'t just step',
-               '另一邊膝蓋向上頂，好似上樓梯 / Drive opposite knee up high, like climbing stairs fast',
-               '上身略微前傾 / Lean body slightly forward']
-      },
-      {
-        title: '完整跳遠 Full Jump · 8 次 ✦ 量最遠',
-        desc: '完整助跑，跳，量度 / Full run-up, jump, measure each attempt',
-        tips: ['在空中腳向前踢 / Kick feet forward while in the air',
-               '落地時雙腳向前，雙手向前伸 / On landing, reach feet and arms forward together',
-               '落地後唔好向後坐 / Don\'t sit back after landing — it reduces measured distance']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '慢行 + 伸展 / Walk then stretch',
-        tips: ['記錄今日最遠距離 / Log today\'s best jump distance',
-               '對比目標，看進步情況 / Compare with target to see progress']
-      }
+    name:'Long Jump Technique · 跳遠技術',
+    intro:'今日重點：提升跳遠一致性和距離 / Focus: improve jump consistency and distance',
+    logFields:['jump','note'],
+    drills:[
+      { title:'暖身 Warm Up', desc:'跳繩 + 單腳跳 + 高抬腿 / Skipping + single-leg hops + high knees',
+        tips:['專為跳遠暖身 / Warm up specifically for jumping movements'] },
+      { title:'助跑練習 Approach Run · 5 次', desc:'唔需要跳，只練助跑一致性 / No jumping — just practise a consistent run-up',
+        tips:['每次都係同一個位置踩線 / Aim to hit the same takeoff spot every time','數清楚步數，保持節奏 / Count steps consistently, keep the same rhythm','唔使跑快，要跑穩 / Don\'t go fast — go consistent'] },
+      { title:'起跳練習 Takeoff Drill · 5 次', desc:'3步助跑，著重起跳動作 / 3-step run-up, focus only on the takeoff',
+        tips:['起跳腳要蹬地，唔係踩地 / Drive off the takeoff foot — push hard, don\'t just step','另一邊膝蓋向上頂，好似上樓梯 / Drive opposite knee up high, like climbing stairs fast','上身略微前傾 / Lean body slightly forward'] },
+      { title:'完整跳遠 Full Jump · 8 次 ✦ 量最遠', desc:'完整助跑，跳，量度每次 / Full run-up, jump, measure each attempt',
+        tips:['在空中腳向前踢 / Kick feet forward while in the air','落地時雙腳向前，雙手向前伸 / On landing, reach feet and arms forward together','落地後唔好向後坐 / Don\'t sit back after landing — it reduces measured distance'] },
+      { title:'收操 Cool Down', desc:'慢行 + 伸展 / Walk then stretch',
+        tips:['記錄今日最遠距離 / Log today\'s best jump distance','對比目標，看進步情況 / Compare with target to see progress'] }
     ]
   },
   '3_A': {
-    name: '60m 比賽練習 · Race Simulation',
-    intro: '今日重點：模擬比賽，計時60m / Focus: race simulation, timed 60m',
-    logFields: ['time60m', 'note'],
-    drills: [
-      {
-        title: '暖身 Extended Warm Up · 5-6 min',
-        desc: '慢跑 + 高抬腿 + 飛行衝刺 / Jog + high knees + flying sprint prep',
-        tips: ['Phase 3係最後衝刺，要認真對待 / Phase 3 is the final push — take it seriously',
-               '暖身要充分，模擬比賽前準備 / Warm up fully, as if before a real race']
-      },
-      {
-        title: '⏱️ 60m 計時 第1次 · Time Trial 1',
-        desc: '全力衝刺，記錄時間 / Full effort sprint, record time',
-        tips: ['假裝係真正比賽 / Pretend it\'s a real race',
-               '起跑前深呼吸，集中精神 / Deep breath before start, focus your mind',
-               '全力衝過終點線 / Drive through the finish line at full speed']
-      },
-      {
-        title: '休息 Rest · 5 分鐘',
-        desc: '慢行恢復，唔好坐低 / Walk to recover, don\'t sit',
-        tips: ['保持走動，腿唔好停 / Keep moving — don\'t let legs stiffen up']
-      },
-      {
-        title: '⏱️ 60m 計時 第2次 · Time Trial 2',
-        desc: '再跑一次，試下超越第1次 / Run again — try to beat the first time',
-        tips: ['睇下第2次係咪比第1次快 / See if you can beat run 1',
-               '第2次慢少少係正常 / A slightly slower second run is normal — don\'t worry']
-      },
-      {
-        title: '30m 爆發跑 · Speed Bursts · 3 × 30m',
-        desc: '短距離爆發，練習起跑反應 / Short explosive bursts to practise the start',
-        tips: ['唔使計時，全力爆發 / No timing needed — just explode',
-               '專注起跑反應 / Focus on the start reaction']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '充分伸展，今日練習辛苦 / Full stretching — tough session today',
-        tips: ['記錄兩次時間，取較快那次 / Log both times, note the faster one']
-      }
+    name:'60m 比賽練習 · Race Simulation',
+    intro:'今日重點：模擬比賽，計時60m / Focus: race simulation, timed 60m',
+    logFields:['time60m','note'],
+    drills:[
+      { title:'暖身 Extended Warm Up · 5-6 min', desc:'慢跑 + 高抬腿 + 飛行衝刺 / Jog + high knees + flying sprint prep',
+        tips:['Phase 3係最後衝刺，要認真對待 / Phase 3 is the final push — take it seriously','暖身要充分，模擬比賽前準備 / Warm up fully, as if before a real race'] },
+      { title:'⏱️ 60m 計時 第1次 · Time Trial 1', desc:'全力衝刺，記錄時間 / Full effort sprint, record time',
+        tips:['假裝係真正比賽 / Pretend it\'s a real race','起跑前深呼吸，集中精神 / Deep breath before start, focus your mind','全力衝過終點線 / Drive through the finish line at full speed'] },
+      { title:'休息 Rest · 5 分鐘', desc:'慢行恢復，唔好坐低 / Walk to recover, don\'t sit',
+        tips:['保持走動，腿唔好停 / Keep moving — don\'t let legs stiffen up'] },
+      { title:'⏱️ 60m 計時 第2次 · Time Trial 2', desc:'再跑一次，試下超越第1次 / Run again — try to beat the first time',
+        tips:['睇下第2次係咪比第1次快 / See if you can beat run 1','第2次慢少少係正常 / A slightly slower second run is normal'] },
+      { title:'30m 爆發跑 · Speed Bursts · 3 × 30m', desc:'短距離爆發，練習起跑反應 / Short explosive bursts to practise the start',
+        tips:['唔使計時，全力爆發 / No timing needed — just explode','專注起跑反應 / Focus on the start reaction'] },
+      { title:'收操 Cool Down', desc:'充分伸展，今日練習辛苦 / Full stretching — tough session today',
+        tips:['記錄兩次時間，取較快那次 / Log both times, note the faster one'] }
     ]
   },
   '3_B': {
-    name: '100m 比賽練習 · 100m Simulation',
-    intro: '今日重點：100m全距離練習 / Focus: full 100m race practice',
-    logFields: ['time100m', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up · 5 min',
-        desc: '輕鬆慢跑 + 拉伸 / Easy jog + light stretching',
-        tips: ['100m比60m長，需要有策略 / 100m is longer — you need a race strategy']
-      },
-      {
-        title: '⏱️ 100m 計時 · Time Trial',
-        desc: '全距離計時跑，記錄 / Full distance timed run, record result',
-        tips: ['分兩段：頭50m加速，後50m保持速度 / Two phases: accelerate first 50m, hold the last 50m',
-               '唔好頭30m就用盡力 / Don\'t blow everything in the first 30m',
-               '大約50m位置會感覺最辛苦，繼續撐住 / Around 50m will feel hardest — push through it']
-      },
-      {
-        title: '休息 Rest · 8-10 分鐘',
-        desc: '100m係辛苦，需要充分恢復 / 100m is hard — take more rest',
-        tips: ['慢行，深呼吸 / Walk slowly, breathe deeply',
-               '補充水分 / Drink some water']
-      },
-      {
-        title: '40m 重複跑 · Repeat Sprints · 3 × 40m',
-        desc: '保持腿部習慣比賽節奏 / Keep legs used to race pace',
-        tips: ['唔需要計時 / No timing needed',
-               '每次休息2分鐘 / Rest 2 minutes between each']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '充分伸展 / Full stretching',
-        tips: ['記錄今日100m時間 / Log today\'s 100m time']
-      }
+    name:'100m 比賽練習 · 100m Simulation',
+    intro:'今日重點：100m全距離練習 / Focus: full 100m race practice',
+    logFields:['time100m','note'],
+    drills:[
+      { title:'暖身 Warm Up · 5 min', desc:'輕鬆慢跑 + 拉伸 / Easy jog + light stretching',
+        tips:['100m比60m長，需要有策略 / 100m is longer — you need a race strategy'] },
+      { title:'⏱️ 100m 計時 · Time Trial', desc:'全距離計時跑，記錄 / Full distance timed run, record result',
+        tips:['分兩段：頭50m加速，後50m保持速度 / Two phases: accelerate first 50m, hold the last 50m','唔好頭30m就用盡力 / Don\'t blow everything in the first 30m','大約50m位置會感覺最辛苦，繼續撐住 / Around 50m will feel hardest — push through'] },
+      { title:'休息 Rest · 8-10 分鐘', desc:'100m係辛苦，需要充分恢復 / 100m is hard — take more rest',
+        tips:['慢行，深呼吸 / Walk slowly, breathe deeply','補充水分 / Drink some water'] },
+      { title:'40m 重複跑 · Repeat Sprints · 3 × 40m', desc:'保持腿部習慣比賽節奏 / Keep legs used to race pace',
+        tips:['唔需要計時 / No timing needed','每次休息2分鐘 / Rest 2 minutes between each'] },
+      { title:'收操 Cool Down', desc:'充分伸展 / Full stretching',
+        tips:['記錄今日100m時間 / Log today\'s 100m time'] }
     ]
   },
   '3_C': {
-    name: 'Jump + Sprint · 跳遠 + 短跑',
-    intro: '今日重點：跳遠比賽準備 / Focus: long jump race readiness',
-    logFields: ['jump', 'note'],
-    drills: [
-      {
-        title: '暖身 Warm Up',
-        desc: '跳繩 + 高抬腿 + 單腳跳 / Skipping + high knees + single-leg hops',
-        tips: ['完整暖身跳遠相關肌肉 / Warm up all muscles used in jumping']
-      },
-      {
-        title: '跳遠練習 Long Jump · 8 次 ✦ 量最遠',
-        desc: '完整助跑，全力跳，量度每次 / Full run-up, full effort, measure every jump',
-        tips: ['今日重點係距離 / Today is all about getting the distance',
-               '每次跳完只改正一樣動作 / After each jump, correct just ONE thing at a time',
-               '試下超越之前最遠記錄 / Try to beat your personal best']
-      },
-      {
-        title: '短跑 Short Sprints · 3 × 30m',
-        desc: '保持腿部活躍 / Keep legs fresh and active',
-        tips: ['全力跑 / Full effort',
-               '快到tryout了，加油！/ Tryout is close — keep pushing!']
-      },
-      {
-        title: '收操 Cool Down',
-        desc: '充分伸展 / Full stretching',
-        tips: ['記錄今日最遠跳遠距離 / Log today\'s best long jump distance',
-               '你做到的！/ You\'re doing great — keep it up!']
-      }
+    name:'Jump + Sprint · 跳遠 + 短跑',
+    intro:'今日重點：跳遠比賽準備 / Focus: long jump race readiness',
+    logFields:['jump','note'],
+    drills:[
+      { title:'暖身 Warm Up', desc:'跳繩 + 高抬腿 + 單腳跳 / Skipping + high knees + single-leg hops',
+        tips:['完整暖身跳遠相關肌肉 / Warm up all muscles used in jumping'] },
+      { title:'跳遠練習 Long Jump · 8 次 ✦ 量最遠', desc:'完整助跑，全力跳，量度每次 / Full run-up, full effort, measure every jump',
+        tips:['今日重點係距離 / Today is all about getting the distance','每次跳完只改正一樣動作 / After each jump, correct just ONE thing at a time','試下超越之前最遠記錄 / Try to beat your personal best'] },
+      { title:'短跑 Short Sprints · 3 × 30m', desc:'保持腿部活躍 / Keep legs fresh and active',
+        tips:['全力跑 / Full effort','快到tryout了，加油！/ Tryout is close — keep pushing!'] },
+      { title:'收操 Cool Down', desc:'充分伸展 / Full stretching',
+        tips:['記錄今日最遠跳遠距離 / Log today\'s best long jump distance','你做到的！/ You\'re doing great — keep it up!'] }
     ]
   }
 };
 
-// ── UI HELPERS ────────────────────────────────────────
+// ── UI HELPERS ────────────────────────────────────────────────────────────────
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('screen-' + name).classList.add('active');
-  document.getElementById('nav-' + name).classList.add('active');
-  const renders = { today: renderToday, log: renderLog, progress: renderProgress, settings: renderSettings };
-  renders[name]();
+  document.getElementById('screen-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  ({ today:renderToday, log:renderLog, progress:renderProgress, settings:renderSettings })[name]();
 }
 
-function daysUntil(dateStr) {
-  const t = new Date(dateStr); t.setHours(0,0,0,0);
-  const n = new Date();        n.setHours(0,0,0,0);
-  return Math.ceil((t - n) / 864e5);
+function daysUntil(d) {
+  const t=new Date(d); t.setHours(0,0,0,0);
+  const n=new Date();  n.setHours(0,0,0,0);
+  return Math.ceil((t-n)/864e5);
 }
 
 function statusDot(best, target, isTime) {
-  if (best === null || best === undefined) return '<span class="dot dot-grey"></span>';
-  const ratio = isTime ? (target / best) : (best / target);
-  if (ratio >= 1.0) return '<span class="dot dot-green"></span>';
-  if (ratio >= 0.88) return '<span class="dot dot-yellow"></span>';
+  if (best==null) return '<span class="dot dot-grey"></span>';
+  const r = isTime ? (target/best) : (best/target);
+  if (r>=1.0)  return '<span class="dot dot-green"></span>';
+  if (r>=0.88) return '<span class="dot dot-yellow"></span>';
   return '<span class="dot dot-red"></span>';
 }
 
-// ── TODAY SCREEN ──────────────────────────────────────
+// ── BASELINE ──────────────────────────────────────────────────────────────────
+var showingBaselineForm = false;
+
+function toggleBaselineForm() {
+  showingBaselineForm = !showingBaselineForm;
+  renderToday();
+}
+
+function saveBaselineForm() {
+  const b = {
+    time30m : parseFloat(document.getElementById('b30')?.value)  || null,
+    time60m : parseFloat(document.getElementById('b60')?.value)  || null,
+    jump    : parseFloat(document.getElementById('bjump')?.value) || null,
+    date    : new Date().toISOString()
+  };
+  if (!b.time60m && !b.jump && !b.time30m) {
+    alert('請至少填寫一項 / Please fill in at least one field'); return;
+  }
+  saveBaseline(b);
+  showingBaselineForm = false;
+  alert('基線已記錄！Baseline saved! ✅');
+  renderToday();
+}
+
+function baselineHTML(settings) {
+  const b = getBaseline();
+  if (showingBaselineForm) {
+    const existing = b || {};
+    return `<div class="card">
+      <h2>📏 ${b ? '更改基線 Edit Baseline' : '記錄基線 Record Baseline'}</h2>
+      <p style="font-size:13px;color:#777;margin-bottom:14px;">
+        第一日訓練前測量，唔需要全部填 / Measure before first session — fill what you tested
+      </p>
+      <div class="form-group">
+        <label>30m 時間 (秒 / seconds) · 可選</label>
+        <input type="number" id="b30" inputmode="decimal" placeholder="e.g. 7.5" step="0.1" value="${existing.time30m||''}">
+      </div>
+      <div class="form-group">
+        <label>60m 時間 (秒 / seconds)</label>
+        <input type="number" id="b60" inputmode="decimal" placeholder="e.g. 13.2" step="0.1" value="${existing.time60m||''}">
+        <p class="info-text">目標 Target: ${settings.target60m}s</p>
+      </div>
+      <div class="form-group">
+        <label>跳遠距離 Long Jump (米 / meters)</label>
+        <input type="number" id="bjump" inputmode="decimal" placeholder="e.g. 0.95" step="0.01" value="${existing.jump||''}">
+        <p class="info-text">目標 Target: ${settings.targetJump}m</p>
+      </div>
+      <button class="btn btn-primary"   onclick="saveBaselineForm()">💾 儲存基線 Save Baseline</button>
+      <button class="btn btn-secondary" onclick="toggleBaselineForm()">取消 Cancel</button>
+    </div>`;
+  }
+  if (!b) {
+    return `<div class="baseline-prompt">
+      <p>第一日訓練前先記錄基線，方便追蹤進步<br>Record a baseline before your first session to track progress</p>
+      <button class="btn btn-outline" style="margin-bottom:0;" onclick="toggleBaselineForm()">📏 記錄基線 Record Baseline</button>
+    </div>`;
+  }
+  const parts = [];
+  if (b.time60m) parts.push('60m: ' + b.time60m + 's');
+  if (b.jump)    parts.push('Jump: ' + b.jump + 'm');
+  if (b.time30m) parts.push('30m: ' + b.time30m + 's');
+  return `<div class="baseline-bar">
+    <div class="baseline-bar-left">
+      <div class="baseline-bar-label">📏 起點基線 Baseline</div>
+      <div class="baseline-bar-vals">${parts.join(' · ')}</div>
+    </div>
+    <button class="baseline-bar-edit" onclick="toggleBaselineForm()">Edit</button>
+  </div>`;
+}
+
+// ── TODAY SCREEN ──────────────────────────────────────────────────────────────
 function renderToday() {
-  const s = getSettings();
+  const s  = getSettings();
   const el = document.getElementById('todayContent');
 
   if (!s || !s.startDate || !s.tryoutDate) {
@@ -666,8 +416,7 @@ function renderToday() {
       <h3>👟 Welcome!</h3>
       <p>先設定開始日期、Tryout日期和目標<br>Set up start date, tryout date, and targets first</p>
       <button class="btn btn-primary" onclick="showScreen('settings')" style="margin-top:14px;">⚙️ 去設定 Go to Settings</button>
-    </div>`;
-    return;
+    </div>`; return;
   }
 
   const plan = generatePlan(s);
@@ -679,8 +428,7 @@ function renderToday() {
       <div style="font-size:52px;margin-bottom:10px;">🏆</div>
       <h2 style="margin-bottom:8px;">全部訓練完成！</h2>
       <p style="color:#888;font-size:14px;">All sessions complete. Good luck at tryouts!</p>
-    </div>`;
-    return;
+    </div>`; return;
   }
 
   const total = plan.sessions.length;
@@ -688,18 +436,17 @@ function renderToday() {
     const l = logs[logKey(x.phase, x.weekNum, x.sessionType)];
     return l && (l.completed || l.skipped);
   }).length;
-  const pct = Math.round((done / total) * 100);
+  const pct   = Math.round((done/total)*100);
   const dLeft = daysUntil(s.tryoutDate);
-  const content = SESSIONS[curr.phase + '_' + curr.sessionType];
-  const name = s.childName || '她';
+  const content = SESSIONS[curr.phase+'_'+curr.sessionType];
 
-  el.innerHTML = `
+  el.innerHTML = baselineHTML(s) + (showingBaselineForm ? '' : `
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
         <div>
           <span class="phase-badge phase-${curr.phase}">Phase ${curr.phase}: ${PHASE_NAMES[curr.phase]}</span>
           <div style="font-size:12px;color:#999;margin-top:5px;">
-            Week ${curr.weekNum} · Session ${curr.sessionType}${curr.isTrial ? '<span class="tag-trial">試跑日 Trial</span>' : ''}
+            Week ${curr.weekNum} · Session ${curr.sessionType}${curr.isTrial?'<span class="tag-trial">試跑日 Trial</span>':''}
           </div>
         </div>
         <div style="text-align:right;">
@@ -708,7 +455,7 @@ function renderToday() {
         </div>
       </div>
       <div style="font-size:12px;color:#999;display:flex;justify-content:space-between;margin-bottom:4px;">
-        <span>總進度 Progress</span><span>${done}/${total} sessions · ${pct}%</span>
+        <span>總進度 Progress</span><span>${done}/${total} · ${pct}%</span>
       </div>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
     </div>
@@ -716,165 +463,175 @@ function renderToday() {
     <div class="card">
       <h2>${content.name}</h2>
       <p style="font-size:13px;color:#777;margin-bottom:14px;">${content.intro}</p>
-      ${content.drills.map(d => `
+      ${content.drills.map(d=>`
         <div class="drill">
           <div class="drill-title">${d.title}</div>
           <div class="drill-desc">${d.desc}</div>
-          <div class="drill-tips">
-            ${d.tips.map(t => '<p>• ' + t + '</p>').join('')}
-          </div>
+          <div class="drill-tips">${d.tips.map(t=>'<p>• '+t+'</p>').join('')}</div>
         </div>`).join('')}
     </div>
 
-    <button class="btn btn-primary" onclick="goToLog()">✅ 完成 Done — Log Result</button>
-    <button class="btn btn-secondary" onclick="skipCurrent()">⏩ 跳過 Skip This Session</button>`;
+    <button class="btn btn-primary"   onclick="goToLog()">✅ 完成 Done — Log Result</button>
+    <button class="btn btn-secondary" onclick="skipCurrent()">⏩ 跳過 Skip This Session</button>`);
 }
 
-var pendingKey = null;
+// ── SESSION STATE ─────────────────────────────────────────────────────────────
 var pendingSession = null;
+var editingSession = null;
 
 function goToLog() {
-  const s    = getSettings();
-  const plan = generatePlan(s);
-  const logs = getLogs();
+  const s=getSettings(); const plan=generatePlan(s); const logs=getLogs();
   pendingSession = nextSession(plan, logs);
-  if (pendingSession) {
-    pendingKey = logKey(pendingSession.phase, pendingSession.weekNum, pendingSession.sessionType);
-  }
+  editingSession = null;
   showScreen('log');
 }
 
 function skipCurrent() {
   if (!confirm('確認跳過這個訓練？\nSkip this session?')) return;
-  const s    = getSettings();
-  const plan = generatePlan(s);
-  const logs = getLogs();
-  const curr = nextSession(plan, logs);
-  if (!curr) return;
-  saveLog(logKey(curr.phase, curr.weekNum, curr.sessionType), { skipped: true, completed: false, date: new Date().toISOString() });
+  const s=getSettings(); const plan=generatePlan(s); const logs=getLogs();
+  const curr = nextSession(plan, logs); if (!curr) return;
+  saveLog(logKey(curr.phase, curr.weekNum, curr.sessionType), { skipped:true, completed:false, date:new Date().toISOString() });
   renderToday();
 }
 
-// ── LOG SCREEN ────────────────────────────────────────
+function editSessionLog(phase, weekNum, type) {
+  editingSession = { phase, weekNum, sessionType:type };
+  pendingSession = null;
+  showScreen('log');
+}
+
+// ── LOG SCREEN ────────────────────────────────────────────────────────────────
 function renderLog() {
   const s  = getSettings();
   const el = document.getElementById('logContent');
 
   if (!s || !s.startDate) {
-    el.innerHTML = '<div class="card"><p style="color:#aaa;text-align:center;padding:20px;">請先完成設定 / Please set up settings first</p></div>';
-    return;
+    el.innerHTML='<div class="card"><p style="color:#aaa;text-align:center;padding:20px;">請先完成設定 / Please set up settings first</p></div>'; return;
   }
 
   const plan = generatePlan(s);
   const logs = getLogs();
-  const sess = pendingSession || nextSession(plan, logs);
+  const sess = editingSession || pendingSession || nextSession(plan, logs);
 
   if (!sess) {
-    el.innerHTML = '<div class="card" style="text-align:center;padding:30px;"><p>沒有需要記錄的訓練 / No session to log</p></div>';
-    return;
+    el.innerHTML='<div class="card" style="text-align:center;padding:30px;"><p>沒有需要記錄的訓練</p></div>'; return;
   }
 
-  const content  = SESSIONS[sess.phase + '_' + sess.sessionType];
-  const fields   = content.logFields;
-  const isTrial  = sess.isTrial;
+  const isEditing = !!editingSession;
+  const existing  = isEditing ? (logs[logKey(sess.phase, sess.weekNum, sess.sessionType)] || {}) : {};
+  const content   = SESSIONS[sess.phase+'_'+sess.sessionType];
+  const fields    = content.logFields;
+  const isTrial   = sess.isTrial;
 
   const show30m  = fields.includes('time30m');
-  const show60m  = fields.includes('time60m') || isTrial;
+  const show60m  = fields.includes('time60m')  || isTrial;
   const show100m = fields.includes('time100m') || isTrial;
-  const showJump = fields.includes('jump') || isTrial;
+  const showJump = fields.includes('jump')     || isTrial;
 
-  el.innerHTML = `
-    <div class="card">
-      <h2>記錄結果 Log Result</h2>
-      <p style="font-size:13px;color:#999;margin-bottom:16px;">
-        Week ${sess.weekNum} · Session ${sess.sessionType}
-        ${isTrial ? '<span class="tag-trial">試跑日 Trial Week — measure everything</span>' : ''}
-      </p>
+  el.innerHTML = `<div class="card">
+    <h2>${isEditing ? '✏️ 修改記錄 Edit Log' : '記錄結果 Log Result'}</h2>
+    <p style="font-size:13px;color:#999;margin-bottom:16px;">
+      Week ${sess.weekNum} · Session ${sess.sessionType}
+      ${isTrial?'<span class="tag-trial">試跑日 Trial Week</span>':''}
+      ${isEditing?'<br><span style="color:#e8500a;font-size:12px;">修改模式 — 之前的數據已載入</span>':''}
+    </p>
 
-      ${show30m ? `<div class="form-group">
-        <label>30m 時間 Time (秒 / seconds)</label>
-        <input type="number" id="l30" inputmode="decimal" placeholder="e.g. 7.2" step="0.1" min="4" max="20">
-      </div>` : ''}
+    ${show30m?`<div class="form-group">
+      <label>30m 時間 (秒 / seconds)</label>
+      <input type="number" id="l30" inputmode="decimal" placeholder="e.g. 7.2" step="0.1" value="${existing.time30m||''}">
+    </div>`:''}
 
-      ${show60m ? `<div class="form-group">
-        <label>60m 時間 Time (秒 / seconds)${!isTrial ? ' · 可選 optional' : ''}</label>
-        <input type="number" id="l60" inputmode="decimal" placeholder="e.g. 12.5" step="0.1" min="8" max="25">
-        <p class="info-text">目標 Target: ${s.target60m}s</p>
-      </div>` : ''}
+    ${show60m?`<div class="form-group">
+      <label>60m 時間 (秒 / seconds)${!isTrial?' · 可選':''}</label>
+      <input type="number" id="l60" inputmode="decimal" placeholder="e.g. 12.5" step="0.1" value="${existing.time60m||''}">
+      <p class="info-text">目標 Target: ${s.target60m}s</p>
+    </div>`:''}
 
-      ${show100m ? `<div class="form-group">
-        <label>100m 時間 Time (秒 / seconds)${!isTrial ? ' · 可選 optional' : ''}</label>
-        <input type="number" id="l100" inputmode="decimal" placeholder="e.g. 21.0" step="0.1" min="12" max="40">
-        <p class="info-text">目標 Target: ${s.target100m}s</p>
-      </div>` : ''}
+    ${show100m?`<div class="form-group">
+      <label>100m 時間 (秒 / seconds)${!isTrial?' · 可選':''}</label>
+      <input type="number" id="l100" inputmode="decimal" placeholder="e.g. 21.0" step="0.1" value="${existing.time100m||''}">
+      <p class="info-text">目標 Target: ${s.target100m}s</p>
+    </div>`:''}
 
-      ${showJump ? `<div class="form-group">
-        <label>跳遠距離 Long Jump (米 / meters)${!isTrial ? ' · 可選 optional' : ''}</label>
-        <input type="number" id="ljump" inputmode="decimal" placeholder="e.g. 1.05" step="0.01" min="0.3" max="3">
-        <p class="info-text">目標 Target: ${s.targetJump}m</p>
-      </div>` : ''}
+    ${showJump?`<div class="form-group">
+      <label>跳遠距離 Long Jump (米 / meters)${!isTrial?' · 可選':''}</label>
+      <input type="number" id="ljump" inputmode="decimal" placeholder="e.g. 1.05" step="0.01" value="${existing.jump||''}">
+      <p class="info-text">目標 Target: ${s.targetJump}m</p>
+    </div>`:''}
 
-      <div class="form-group">
-        <label>備注 Note <span style="font-weight:400;color:#aaa;">· 可選 optional</span></label>
-        <input type="text" id="lnote" placeholder="e.g. Great reaction starts today / 今日狀態好好">
-      </div>
+    <div class="form-group">
+      <label>備注 Note <span style="font-weight:400;color:#aaa;">· 可選</span></label>
+      <input type="text" id="lnote" placeholder="e.g. Great reaction starts today / 今日狀態好好" value="${existing.note||''}">
+    </div>
 
-      <button class="btn btn-primary" onclick="submitLog()">💾 儲存 Save Result</button>
-      <button class="btn btn-secondary" onclick="cancelLog()">取消 Cancel</button>
-    </div>`;
+    <button class="btn btn-primary"   onclick="submitLog()">${isEditing?'💾 更新 Update':'💾 儲存 Save Result'}</button>
+    ${isEditing?`<button class="btn btn-danger" onclick="deleteLog()">🗑 刪除記錄 Delete Log</button>`:''}
+    <button class="btn btn-secondary" onclick="cancelLog()">取消 Cancel</button>
+  </div>`;
 }
 
 function cancelLog() {
-  pendingSession = null;
-  pendingKey     = null;
-  showScreen('today');
+  pendingSession = null; editingSession = null;
+  showScreen(editingSession ? 'progress' : 'today');
 }
 
 function submitLog() {
   const s    = getSettings();
   const plan = generatePlan(s);
   const logs = getLogs();
-  const sess = pendingSession || nextSession(plan, logs);
+  const sess = editingSession || pendingSession || nextSession(plan, logs);
   if (!sess) return;
 
-  const key = pendingKey || logKey(sess.phase, sess.weekNum, sess.sessionType);
-  const data = {
-    completed: true,
-    skipped:   false,
-    date:      new Date().toISOString(),
-    time30m:   parseFloat(document.getElementById('l30')?.value)   || null,
-    time60m:   parseFloat(document.getElementById('l60')?.value)   || null,
-    time100m:  parseFloat(document.getElementById('l100')?.value)  || null,
-    jump:      parseFloat(document.getElementById('ljump')?.value) || null,
-    note:      document.getElementById('lnote')?.value             || ''
-  };
+  const key  = logKey(sess.phase, sess.weekNum, sess.sessionType);
+  const prev = logs[key] || {};
+  saveLog(key, {
+    ...prev,
+    completed : true,
+    skipped   : false,
+    date      : prev.date || new Date().toISOString(),
+    time30m   : parseFloat(document.getElementById('l30')?.value)   || null,
+    time60m   : parseFloat(document.getElementById('l60')?.value)   || null,
+    time100m  : parseFloat(document.getElementById('l100')?.value)  || null,
+    jump      : parseFloat(document.getElementById('ljump')?.value) || null,
+    note      : document.getElementById('lnote')?.value             || ''
+  });
 
-  saveLog(key, data);
-  pendingSession = null;
-  pendingKey     = null;
-  alert('儲存成功！Saved! ✅');
-  showScreen('today');
+  const wasEditing = !!editingSession;
+  pendingSession = null; editingSession = null;
+  alert(wasEditing ? '更新成功！Updated! ✅' : '儲存成功！Saved! ✅');
+  showScreen(wasEditing ? 'progress' : 'today');
 }
 
-// ── PROGRESS SCREEN ───────────────────────────────────
+function deleteLog() {
+  if (!confirm('確認刪除這個記錄？\nDelete this log entry?')) return;
+  const sess = editingSession; if (!sess) return;
+  const logs = getLogs();
+  delete logs[logKey(sess.phase, sess.weekNum, sess.sessionType)];
+  localStorage.setItem(K.LOGS, JSON.stringify(logs));
+  editingSession = null;
+  alert('記錄已刪除 / Log deleted');
+  showScreen('progress');
+}
+
+// ── PROGRESS SCREEN ───────────────────────────────────────────────────────────
 function renderProgress() {
   const s  = getSettings();
   const el = document.getElementById('progressContent');
 
   if (!s || !s.startDate) {
-    el.innerHTML = '<div class="card"><p style="color:#aaa;text-align:center;padding:20px;">請先完成設定 / Set up settings first</p></div>';
-    return;
+    el.innerHTML='<div class="card"><p style="color:#aaa;text-align:center;padding:20px;">請先完成設定</p></div>'; return;
   }
 
   const plan = generatePlan(s);
   const logs = getLogs();
+  const bl   = getBaseline();
 
   const allDone = plan.sessions
-    .map(x => ({ ...x, log: logs[logKey(x.phase, x.weekNum, x.sessionType)] }))
-    .filter(x => x.log && x.log.completed);
+    .map(x=>({...x, log:logs[logKey(x.phase,x.weekNum,x.sessionType)]}))
+    .filter(x=>x.log && x.log.completed);
 
   function best(field, isTime) {
-    const vals = allDone.map(x => x.log[field]).filter(v => v != null);
+    const vals = allDone.map(x=>x.log[field]).filter(v=>v!=null);
     if (!vals.length) return null;
     return isTime ? Math.min(...vals) : Math.max(...vals);
   }
@@ -884,193 +641,149 @@ function renderProgress() {
   const bJmp = best('jump',     false);
   const b30  = best('time30m',  true);
 
-  const skipped = plan.sessions.filter(x => {
-    const l = logs[logKey(x.phase, x.weekNum, x.sessionType)];
-    return l && l.skipped;
+  const skipped = plan.sessions.filter(x=>{
+    const l=logs[logKey(x.phase,x.weekNum,x.sessionType)]; return l&&l.skipped;
   }).length;
+
+  function metricRow(label, target, bestVal, baseVal, isTime) {
+    const bestStr = bestVal != null ? (isTime ? bestVal.toFixed(1)+'s' : bestVal.toFixed(2)+'m') : '--';
+    const baseStr = baseVal != null ? (isTime ? baseVal.toFixed(1)+'s' : baseVal.toFixed(2)+'m') : '--';
+    return `<div class="target-row">
+      <div>
+        ${statusDot(bestVal, target, isTime)}
+        <span class="target-label">${label} · 目標 ${target}${isTime?'s':'m'}</span>
+      </div>
+      <div style="text-align:right;">
+        <div class="target-value">${bestStr}</div>
+        <div class="target-sub">start: ${baseStr}</div>
+      </div>
+    </div>`;
+  }
 
   el.innerHTML = `
     <div class="card">
       <h2>目標 Targets</h2>
-      <div class="target-row">
-        <div>${statusDot(b60,  s.target60m,  true )} <span class="target-label">60m · 目標 ${s.target60m}s</span></div>
-        <div style="text-align:right;">
-          <div class="target-value">${b60  ? b60.toFixed(1)  + 's' : '--'}</div>
-          <div class="target-sub">best so far</div>
-        </div>
-      </div>
-      <div class="target-row">
-        <div>${statusDot(b100, s.target100m, true )} <span class="target-label">100m · 目標 ${s.target100m}s</span></div>
-        <div style="text-align:right;">
-          <div class="target-value">${b100 ? b100.toFixed(1) + 's' : '--'}</div>
-          <div class="target-sub">best so far</div>
-        </div>
-      </div>
-      <div class="target-row">
-        <div>${statusDot(bJmp, s.targetJump, false)} <span class="target-label">跳遠 · 目標 ${s.targetJump}m</span></div>
-        <div style="text-align:right;">
-          <div class="target-value">${bJmp ? bJmp.toFixed(2) + 'm' : '--'}</div>
-          <div class="target-sub">best so far</div>
-        </div>
-      </div>
-      ${b30 ? `<div class="target-row">
-        <div><span class="target-label">30m 最快 Best 30m</span></div>
-        <div style="text-align:right;"><div class="target-value">${b30.toFixed(1)}s</div></div>
-      </div>` : ''}
+      ${metricRow('60m',  s.target60m,  b60,  bl?.time60m, true)}
+      ${metricRow('100m', s.target100m, b100, null,        true)}
+      ${metricRow('跳遠', s.targetJump, bJmp, bl?.jump,    false)}
+      ${b30||bl?.time30m ? metricRow('30m', '-', b30, bl?.time30m, true) : ''}
     </div>
 
-    <div style="display:flex;gap:10px;margin-bottom:12px;">
-      <div class="card" style="flex:1;text-align:center;padding:14px 10px;margin-bottom:0;">
-        <div style="font-size:26px;font-weight:700;color:#e8500a;">${allDone.length}</div>
-        <div style="font-size:12px;color:#aaa;">完成 done</div>
-      </div>
-      <div class="card" style="flex:1;text-align:center;padding:14px 10px;margin-bottom:0;">
-        <div style="font-size:26px;font-weight:700;color:#999;">${skipped}</div>
-        <div style="font-size:12px;color:#aaa;">跳過 skipped</div>
-      </div>
-      <div class="card" style="flex:1;text-align:center;padding:14px 10px;margin-bottom:0;">
-        <div style="font-size:26px;font-weight:700;color:#1a1a1a;">${plan.sessions.length - allDone.length - skipped}</div>
-        <div style="font-size:12px;color:#aaa;">剩餘 left</div>
-      </div>
+    <div class="three-col">
+      <div class="card"><div style="font-size:26px;font-weight:700;color:#e8500a;">${allDone.length}</div><div style="font-size:12px;color:#aaa;">完成</div></div>
+      <div class="card"><div style="font-size:26px;font-weight:700;color:#999;">${skipped}</div><div style="font-size:12px;color:#aaa;">跳過</div></div>
+      <div class="card"><div style="font-size:26px;font-weight:700;">${plan.sessions.length-allDone.length-skipped}</div><div style="font-size:12px;color:#aaa;">剩餘</div></div>
     </div>
 
     <div class="card">
-      <h2>記錄 Session Log</h2>
-      ${allDone.length === 0
+      <h2>訓練記錄 Session Log</h2>
+      <p style="font-size:12px;color:#aaa;margin-bottom:10px;">點擊任何一行可以修改 / Tap any row to edit</p>
+      ${allDone.length===0
         ? '<p style="color:#aaa;text-align:center;padding:20px 0;font-size:14px;">未有記錄<br>No sessions logged yet</p>'
         : `<table class="progress-table">
-            <thead><tr><th>Week</th><th>Ph</th><th>60m</th><th>100m</th><th>Jump</th><th>Note</th></tr></thead>
+            <thead><tr><th>Week</th><th>Ph</th><th>60m</th><th>Jump</th><th>Note</th><th></th></tr></thead>
             <tbody>
-              ${allDone.slice().reverse().map(x => `<tr>
-                <td>W${x.weekNum}${x.sessionType}</td>
-                <td><span class="phase-badge phase-${x.phase}" style="padding:2px 6px;font-size:11px;">P${x.phase}</span></td>
-                <td>${x.log.time60m  ? x.log.time60m  + 's' : '-'}</td>
-                <td>${x.log.time100m ? x.log.time100m + 's' : '-'}</td>
-                <td>${x.log.jump     ? x.log.jump     + 'm' : '-'}</td>
-                <td><span class="note-cell">${x.log.note || ''}</span></td>
-              </tr>`).join('')}
+              ${allDone.slice().reverse().map(x=>`
+                <tr class="data-row" onclick="editSessionLog(${x.phase},${x.weekNum},'${x.sessionType}')">
+                  <td>W${x.weekNum}${x.sessionType}</td>
+                  <td><span class="phase-badge phase-${x.phase}" style="padding:2px 6px;font-size:11px;">P${x.phase}</span></td>
+                  <td>${x.log.time60m?x.log.time60m+'s':x.log.time100m?x.log.time100m+'s':x.log.time30m?x.log.time30m+'s':'-'}</td>
+                  <td>${x.log.jump?x.log.jump+'m':'-'}</td>
+                  <td><span class="note-cell">${x.log.note||''}</span></td>
+                  <td style="color:#e8500a;font-size:14px;">✏️</td>
+                </tr>`).join('')}
             </tbody>
           </table>`}
     </div>
 
     <div class="card">
       <h2>備份 Backup Data</h2>
-      <p style="font-size:13px;color:#777;margin-bottom:12px;">
-        所有資料存在此電話。複製後貼入備忘錄保存。<br>
-        All data is on this phone. Copy and paste into Notes to back up.
-      </p>
+      <p style="font-size:13px;color:#777;margin-bottom:12px;">所有資料存在此電話。複製後貼入備忘錄保存。<br>All data is on this phone. Copy and paste into Notes to back up.</p>
       <button class="btn btn-outline" onclick="copyBackup()">📋 複製所有資料 Copy All Data</button>
     </div>`;
 }
 
 function copyBackup() {
-  const data = JSON.stringify({ settings: getSettings(), logs: getLogs() }, null, 2);
+  const data = JSON.stringify({ settings:getSettings(), logs:getLogs(), baseline:getBaseline() }, null, 2);
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(data)
-      .then(() => alert('已複製！Copied!\n\nPaste into Notes app to save a backup.'))
-      .catch(() => fallbackCopy(data));
-  } else {
-    fallbackCopy(data);
-  }
+    navigator.clipboard.writeText(data).then(()=>alert('已複製！Copied!\n\nPaste into Notes app to save a backup.')).catch(()=>fallbackCopy(data));
+  } else { fallbackCopy(data); }
 }
 function fallbackCopy(text) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
-  try { document.execCommand('copy'); alert('已複製！Copied!\n\nPaste into Notes app to save a backup.'); }
-  catch(e) { alert('Please manually copy the data:\n\n' + text); }
+  const ta=document.createElement('textarea'); ta.value=text;
+  ta.style.cssText='position:fixed;top:-9999px;left:-9999px;';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); alert('已複製！Copied!\n\nPaste into Notes app.'); } catch(e) { alert('Please manually copy:\n\n'+text); }
   document.body.removeChild(ta);
 }
 
-// ── SETTINGS SCREEN ───────────────────────────────────
+// ── SETTINGS SCREEN ───────────────────────────────────────────────────────────
 function renderSettings() {
   const s  = getSettings() || {};
   const el = document.getElementById('settingsContent');
-
   el.innerHTML = `
     <div class="card">
       <h2>基本設定 Setup</h2>
       <div class="form-group">
         <label>孩子名字 Child's Name</label>
-        <input type="text" id="sName"   value="${s.childName   || ''}" placeholder="e.g. Jayna">
+        <input type="text" id="sName"   value="${s.childName||''}" placeholder="e.g. Jayna">
       </div>
       <div class="form-group">
         <label>開始日期 Start Date</label>
-        <input type="date" id="sStart"  value="${s.startDate   || ''}">
+        <input type="date" id="sStart"  value="${s.startDate||''}">
       </div>
       <div class="form-group">
         <label>Tryout 日期 · 學校選拔日期</label>
-        <input type="date" id="sTryout" value="${s.tryoutDate  || ''}">
-        <p class="info-text">輸入後系統會自動計算訓練計劃 / The plan adapts automatically after you enter this</p>
+        <input type="date" id="sTryout" value="${s.tryoutDate||''}">
+        <p class="info-text">輸入後系統會自動計算訓練計劃 / Plan adapts automatically</p>
       </div>
     </div>
-
     <div class="card">
       <h2>目標設定 Performance Targets</h2>
-      <p style="font-size:13px;color:#aaa;margin-bottom:14px;">
-        根據學校要求填寫，隨時可以修改<br>Fill based on school requirements — update anytime
-      </p>
+      <p style="font-size:13px;color:#aaa;margin-bottom:14px;">根據學校要求填寫，隨時可以修改 / Fill based on school requirements, update anytime</p>
       <div class="form-group">
         <label>60m 目標時間 Target (秒 / seconds)</label>
-        <input type="number" id="s60"   inputmode="decimal" value="${s.target60m  || 12.0}" step="0.1" min="8"   max="25">
+        <input type="number" id="s60"   inputmode="decimal" value="${s.target60m||12.0}"  step="0.1" min="8"   max="25">
       </div>
       <div class="form-group">
         <label>100m 目標時間 Target (秒 / seconds)</label>
-        <input type="number" id="s100"  inputmode="decimal" value="${s.target100m || 20.0}" step="0.1" min="12"  max="40">
+        <input type="number" id="s100"  inputmode="decimal" value="${s.target100m||20.0}" step="0.1" min="12"  max="40">
       </div>
       <div class="form-group">
         <label>跳遠目標 Long Jump Target (米 / meters)</label>
-        <input type="number" id="sJump" inputmode="decimal" value="${s.targetJump || 1.20}" step="0.01" min="0.5" max="3">
+        <input type="number" id="sJump" inputmode="decimal" value="${s.targetJump||1.20}" step="0.01" min="0.5" max="3">
       </div>
       <button class="btn btn-primary" onclick="saveSettingsForm()">💾 儲存 Save Settings</button>
     </div>
-
-    ${s.startDate && s.tryoutDate ? planSummaryHTML(s) : ''}`;
+    ${s.startDate&&s.tryoutDate?planSummaryHTML(s):''}`;
 }
 
 function planSummaryHTML(s) {
-  const p = generatePlan(s);
-  const dLeft = daysUntil(s.tryoutDate);
-  return `<div class="card">
-    <h2>訓練計劃摘要 Plan Summary</h2>
-    <div class="summary-row"><span class="summary-label">距離Tryout / Days to tryout</span><span class="summary-val">${dLeft} 天 days</span></div>
+  const p=generatePlan(s); const dLeft=daysUntil(s.tryoutDate);
+  return `<div class="card"><h2>訓練計劃摘要 Plan Summary</h2>
+    <div class="summary-row"><span class="summary-label">距離Tryout</span><span class="summary-val">${dLeft} 天 days</span></div>
     <div class="summary-row"><span class="summary-label">總週數 Total weeks</span><span class="summary-val">${p.totalWeeks}</span></div>
     <div class="summary-row"><span class="summary-label">Phase 1 基礎期</span><span class="summary-val">${p.p1} weeks</span></div>
     <div class="summary-row"><span class="summary-label">Phase 2 發展期</span><span class="summary-val">${p.p2} weeks</span></div>
     <div class="summary-row"><span class="summary-label">Phase 3 衝刺期</span><span class="summary-val">${p.p3} weeks</span></div>
-    <div class="summary-row"><span class="summary-label">總訓練節數 Total sessions</span><span class="summary-val">${p.sessions.length}</span></div>
+    <div class="summary-row"><span class="summary-label">總訓練節數</span><span class="summary-val">${p.sessions.length}</span></div>
   </div>`;
 }
 
 function saveSettingsForm() {
-  const startDate  = document.getElementById('sStart').value;
-  const tryoutDate = document.getElementById('sTryout').value;
-
-  if (!startDate || !tryoutDate) {
-    alert('請填寫開始日期和Tryout日期\nPlease fill in start date and tryout date');
-    return;
-  }
-  if (new Date(tryoutDate) <= new Date(startDate)) {
-    alert('Tryout日期必須在開始日期之後\nTryout date must be after start date');
-    return;
-  }
-
-  saveSettings({
-    childName:   document.getElementById('sName').value   || '',
-    startDate,
-    tryoutDate,
-    target60m:   parseFloat(document.getElementById('s60').value)   || 12.0,
-    target100m:  parseFloat(document.getElementById('s100').value)  || 20.0,
-    targetJump:  parseFloat(document.getElementById('sJump').value) || 1.20
-  });
-
+  const startDate=document.getElementById('sStart').value;
+  const tryoutDate=document.getElementById('sTryout').value;
+  if (!startDate||!tryoutDate) { alert('請填寫開始日期和Tryout日期'); return; }
+  if (new Date(tryoutDate)<=new Date(startDate)) { alert('Tryout日期必須在開始日期之後'); return; }
+  saveSettings({ childName:document.getElementById('sName').value||'', startDate, tryoutDate,
+    target60m:parseFloat(document.getElementById('s60').value)||12.0,
+    target100m:parseFloat(document.getElementById('s100').value)||20.0,
+    targetJump:parseFloat(document.getElementById('sJump').value)||1.20 });
   alert('儲存成功！Settings saved! ✅');
   renderSettings();
 }
 
-// ── INIT ──────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────────────────
 renderToday();
 </script>
 </body>
