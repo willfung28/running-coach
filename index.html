@@ -793,7 +793,12 @@ function renderSettings() {
       </div>
       <button class="btn btn-primary" onclick="saveSettingsForm()">💾 儲存 Save Settings</button>
     </div>
-    ${s.startDate&&s.tryoutDate?planSummaryHTML(s):''}`;
+    ${s.startDate&&s.tryoutDate?planSummaryHTML(s):''}
+    <div class="card">
+      <h2>重置 Reset</h2>
+      <p style="font-size:13px;color:#777;margin-bottom:12px;">清除所有記錄和基線，重新開始<br>Clear all logs and baseline data to start fresh</p>
+      <button class="btn btn-danger" onclick="resetAll()">🗑 清除所有資料 Reset All Data</button>
+    </div>`;
 }
 
 function planSummaryHTML(s) {
@@ -806,6 +811,17 @@ function planSummaryHTML(s) {
     <div class="summary-row"><span class="summary-label">Phase 3 衝刺期</span><span class="summary-val">${p.p3} weeks</span></div>
     <div class="summary-row"><span class="summary-label">總訓練節數</span><span class="summary-val">${p.sessions.length}</span></div>
   </div>`;
+}
+
+function resetAll() {
+  if (!confirm('確認清除所有資料？此操作不可撤銷。\nClear all data? This cannot be undone.')) return;
+  localStorage.removeItem(K.LOGS);
+  localStorage.removeItem(K.BASELINE);
+  showingBaselineForm = false;
+  pendingSession = null;
+  editingSession = null;
+  alert('已重置！All data cleared ✅');
+  renderSettings();
 }
 
 function saveSettingsForm() {
